@@ -1,0 +1,11 @@
+configs:
+    - ProcessName: xxx.exe
+      RunCmd: net start xxx
+      CheckInterval: 5s
+      RunDelay: 1s
+      IsEnable: false
+    - ProcessName: m7s.exe
+      RunCmd: start_m7s.bat
+      CheckInterval: 5s
+      RunDelay: 1s
+      IsEnable: true

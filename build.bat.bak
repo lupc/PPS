@@ -1,0 +1,6 @@
+go build -ldflags="-s -w" -o build_windows/m7s.exe
+cd build_windows
+set zipfile=m7s_windows.zip
+del %zipfile%
+7z a -tzip %zipfile% *
+pause
