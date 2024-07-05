@@ -1,11 +1,15 @@
 configs:
     - ProcessName: xxx.exe
       RunCmd: net start xxx
+      StopCmd: net stop xxx
+      StopWhenMenoryUsage: 1000
       CheckInterval: 5s
       RunDelay: 1s
       IsEnable: false
     - ProcessName: m7s.exe
       RunCmd: start_m7s.bat
+      StopCmd: stop_m7s.bat
+      StopWhenMenoryUsage: 1000
       CheckInterval: 5s
       RunDelay: 1s
       IsEnable: true

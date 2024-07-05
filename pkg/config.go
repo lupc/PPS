@@ -11,11 +11,13 @@ import (
 )
 
 type ConfigStart struct {
-	ProcessName   string        `yaml:"ProcessName"`   //进程名称（唯一标识）
-	RunCmd        string        `yaml:"RunCmd"`        //执行语句
-	CheckInterval time.Duration `yaml:"CheckInterval"` //检测间隔
-	RunDelay      time.Duration `yaml:"RunDelay"`      //延时启动
-	IsEnable      bool          `yaml:"IsEnable"`      //是否启用
+	ProcessName         string        `yaml:"ProcessName"`         //进程名称（唯一标识）
+	RunCmd              string        `yaml:"RunCmd"`              //执行语句
+	StopCmd             string        `yaml:"StopCmd"`             //停止语句
+	CheckInterval       time.Duration `yaml:"CheckInterval"`       //检测间隔
+	RunDelay            time.Duration `yaml:"RunDelay"`            //延时启动
+	StopWhenMenoryUsage float64       `yaml:"StopWhenMenoryUsage"` //指定内存占用超过该值停止程序（单位mb）
+	IsEnable            bool          `yaml:"IsEnable"`            //是否启用
 }
 type Config struct {
 	Configs []*ConfigStart //支持多个进程守护
