@@ -45,7 +45,10 @@ func ProtectProcess(cfg *ConfigStart) {
 		}
 		menMB := (float64)(men.RSS) / 1024 / 1024
 		if menMB > float64(cfg.StopWhenMenoryUsage) {
-			runProcess(cfg.StopCmd, 1000) //内存过大停止
+			//runProcess(cfg.StopCmd, 1000) //内存过大停止
+			p.Kill()
+			time.Sleep(time.Second * 2)
+			break
 		}
 		util.GetLogger().Debug("进程状态", zap.Any("name", pName), zap.String("cpu", fmt.Sprintf("%.2f%%", cpu)), zap.Any("memory", fmt.Sprintf("%.2fMB", menMB)))
 		time.Sleep(interval)
